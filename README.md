@@ -2,6 +2,8 @@
 
 ## Release NPM
 
+> 参考：https://docs.github.com/zh/actions/publishing-packages/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
+
 ### use npm
 
 ```yml
