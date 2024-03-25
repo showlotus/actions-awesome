@@ -3,6 +3,7 @@ name: Release NPM
 on:
   push:
     tags:
+      # 每当新创建一个以 v 开头的 tag 时，触发工作流
       - 'v*'
 
 jobs:
@@ -39,7 +40,10 @@ jobs:
         run: pnpm run build
 
       - name: Publish to NPM
+        # 发布工作区下的所有包
         run: pnpm -r publish --access public --no-git-checks
+        # 指定发布工作区下的某个包
+        # run: pnpm --filter ./packages/package-name publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           NPM_CONFIG_PROVENANCE: true
